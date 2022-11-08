@@ -1,0 +1,23 @@
+<nav class="navbar">
+    <div class="nav-item">
+      <a href="/" class="nav-link">Home</a>
+    </div>
+    <% if (currentUser) { %>
+    <div class="nav-item">
+      <a href="/join" class="nav-link">Join Club</a>
+    </div>
+    <div class="nav-item">
+      <a href="/compose-message" class="nav-link">Compose</a>
+    </div>
+    <div class="nav-item">
+      <a href="/log-out" class="nav-link">Log Out</a>
+    </div>
+    <% } else { %>
+    <div class="nav-item">
+      <a href="/sign-up" class="nav-link">Sign Up</a>
+    </div>
+    <div class="nav-item">
+      <a href="/login-form" class="nav-link">Login</a>
+    </div>
+    <% } %> 
+  </nav>
