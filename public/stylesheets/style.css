@@ -108,3 +108,22 @@ button {
 #delete-form {
   max-width: 150px;
 }
+
+.social-container {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#github-logo {
+  width: 32px;
+  height: 32px;
+}
+
+#social-link {
+  font-family: "JetBrains Mono", monospace;
+  color: white;
+}
