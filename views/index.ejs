@@ -2,35 +2,44 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='../stylesheets/style.css' />
   </head>
   
   <header class="nav-header-container"><%- include('partials/header')%></header>
   <body>
-    <h1><%= title %></h1>
     <% if (currentUser) { %>
-        <h2>Welcome to the club <%= currentUser.username %></h2>
+        <h2>Welcome back to the club, <%= currentUser.username %></h2>
     <% } else { %>
-     <p>Welcome to <%= title %></p>
+     <p class="welcome">Welcome to Members Club!</p>
     <%}%>
     <h1>Messages from the Club</h1>
     <% if (messages.length) { %>
          <% messages.forEach(message => { %>
     <div class="message-card">
-      <p id="message-title">Title: <%= message.title %></p>
-      <p id="message">Message: <%= message.text %></p>
+      <div id="message-title">
+        <p>Title: </p>
+        <p id="message-title-text"> <%= message.title %></p>
+      </div>
+      <div id="message">
+        <p>Message: </p>
+        <p id="message-text"><%= message.text %></p>
+      </div>
       <% if (!currentUser) { %>
-       <p>Author: Anonymous</p>
-       <p>Date: Anonymous</p>
+        <div id="message-info">
+          <p>Author: Anonymous</p>
+          <p>Date: Anonymous</p>
+        </div>
       <% } else { %>
-        <p>Author: <%= message.owner.username %> </p>
-        <p>Date: <%= message.timestamp %> </p>
-        <% if (currentUser.isadmin) { %>
-          <form action="/" method="post">
-            <input type="hidden" name="messageid" value="<%= message._id %>">
-            <button id="delete-btn" type="submit">DELETE</button>
-          </form>
-        <% } %>
+        <div id="message-info">
+          <p>Author: <%= message.owner.username %> </p>
+          <p>Date: <%= message.format_timestamp %> </p>
+          <% if (currentUser.isadmin) { %>
+            <form action="/" method="post" id="delete-form">
+              <input type="hidden" name="messageid" value="<%= message._id %>">
+              <button id="delete-btn" type="submit">DELETE</button>
+            </form>
+          <% } %>
+        </div>
       <% } %> 
     </div>
     <% }) %>
