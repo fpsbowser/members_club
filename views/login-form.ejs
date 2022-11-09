@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= title %> </title>
+  </head>
+  <header class="nav-header-container"><%- include('partials/header')%></header>
+  <body>
+    <h1>Login</h1>
+    <form action="" method="POST">
+      <label for="username">Username</label>
+      <input type="text" name="username" placeholder="username" />
+      <label for="password">Password</label>
+      <input type="password" name="password" />
+      <button>Login</button>
+    </form>
+    <% if (locals.errors) { %>
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%- error.msg %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </body>
+</html>

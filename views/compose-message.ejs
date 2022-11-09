@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= title %> </title>
+  </head>
+  <header class="nav-header-container"><%- include('partials/header')%></header>
+  <body>
+    <% if (currentUser) { %>
+      <form action="" method="POST">
+        <label for="title">Title</label>
+        <input type="text" name="title" <% if(locals.message) {%> value="<%= message.title %>" <% } %>/>
+        <label for="message">Message</label>
+        <textarea  name="message" rows="5" cols="50"><% if(locals.message) {%> value="<%= message.text %>" <% } %></textarea>
+        <button>Submit</button>
+    </form>
+    <% } else { %>
+      <h1>Please login before attempting to compose a message!</h1>
+      <a href="/login-form">LOGIN</a>
+      <% } %> 
+    <% if (locals.errors) { %>
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%- error.msg %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </body>
+</html>
