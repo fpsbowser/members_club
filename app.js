@@ -10,6 +10,8 @@ const User = require("./models/user");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const compression = require("compression");
+const helmet = require("helmet");
 var indexRouter = require("./routes/index");
 var signupRouter = require("./routes/signup");
 var loginRouter = require("./routes/login");
@@ -38,6 +40,8 @@ app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
   next();
 });
+app.use(helmet());
+app.use(compression());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
