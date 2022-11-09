@@ -2,6 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <title><%= title %> </title>
+    <link rel='stylesheet' href='../stylesheets/style.css' />
   </head>
   <header class="nav-header-container"><%- include('partials/header')%></header>
   <body>
@@ -10,7 +11,7 @@
         <label for="title">Title</label>
         <input type="text" name="title" <% if(locals.message) {%> value="<%= message.title %>" <% } %>/>
         <label for="message">Message</label>
-        <textarea  name="message" rows="5" cols="50"><% if(locals.message) {%> value="<%= message.text %>" <% } %></textarea>
+        <textarea  name="message" rows="5" cols="100"><% if(locals.message) {%> value="<%= message.text %>" <% } %></textarea>
         <button>Submit</button>
     </form>
     <% } else { %>

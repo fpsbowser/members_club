@@ -2,23 +2,24 @@
   <head>
     <meta charset="UTF-8" />
     <title><%= title %> </title>
+    <link rel='stylesheet' href='../stylesheets/style.css' />
   </head>
   <header class="nav-header-container"><%- include('partials/header')%></header>
   <body>
-    <h1>Sign Up</h1>
-    <form action="" method="POST">
-      <label for="firstname">First name</label>
-      <input type="text" name="firstname" placeholder="firstname" required<% if(locals.user) {%> value="<%= user.firstname %>" <% } %>/>
-      <label for="lastname">Last name</label>
-      <input type="text" name="lastname" placeholder="lastname" required<% if(locals.user) {%> value="<%= user.lastname %>" <% } %>/>
-      <label for="username">Username</label>
-      <input type="text" name="username" placeholder="username" required<% if(locals.user) {%> value="<%= user.username %>" <% } %>/>
-      <label for="password">Password</label>
-      <input type="password" name="password" required/>
-      <label for="password-confirmation">Confirm Password</label>
-      <input type="password" name="password-confirmation" required/>
-      <button>Sign Up</button>
-    </form>
+    <p class="welcome">Sign up to post messages!</p>
+      <form action="" method="POST">
+        <label for="firstname">First name</label>
+        <input type="text" name="firstname" placeholder="firstname" required<% if(locals.user) {%> value="<%= user.firstname %>" <% } %>/>
+        <label for="lastname">Last name</label>
+        <input type="text" name="lastname" placeholder="lastname" required<% if(locals.user) {%> value="<%= user.lastname %>" <% } %>/>
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="username" required<% if(locals.user) {%> value="<%= user.username %>" <% } %>/>
+        <label for="password">Password</label>
+        <input type="password" name="password" required/>
+        <label for="password-confirmation">Confirm Password</label>
+        <input type="password" name="password-confirmation" required/>
+        <button>Sign Up</button>
+      </form>
     <% if (locals.errors) { %>
     <ul>
       <% errors.forEach(error => { %>
